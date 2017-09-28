@@ -6,17 +6,12 @@ var fileName = path.join(filePath, 'blogPost.json');
 
 var postList = [];
 
-fs.stat(fileName,(err,stat) =>
-{
-  console.log("test");
-});
-
 var loadPosts = function loadPosts() {
     if(postList.length < 1) {
         fs.stat(fileName, (err, stat) =>{
             if(err) {
                 console.log("Couldn't find posts file. " + err.message);
-                savePosts();
+             //   savePosts();
             } else {
                 fs.readFile(fileName, 'utf8', (err, data)=>{
                     if(err) {
@@ -24,15 +19,21 @@ var loadPosts = function loadPosts() {
                         throw err;
                     }
 
-                    var newPosts = JSON.parse(data);
+                   var newPosts = JSON.parse(data);
                     if(newPosts.length > 0){
                         postList = newPosts;
+                        //sort the array to display posts in descending order
+                        postList.sort(function(a, b) {
+                               return b.id - a.id;
+                        });
                     }
+             
                 });
             }
         });
     }
 };
+
 
 var writeFile = function writeFile(){
     var json = JSON.stringify(postList);
@@ -65,9 +66,9 @@ var repo = {
     postCount: postList.length,
 
     getPosts: () => {
-        if(postList.length < 1) {
+      /*  if(postList.length < 1) {
             loadPosts();
-        }
+        }*/
         return postList;
     },
     getPostById: (postId) => {

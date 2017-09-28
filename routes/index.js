@@ -2,11 +2,13 @@
 var express = require('express'),
 router = express.Router(),
 repo = require('../models/postRepository');
+repo.loadPosts();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res) {
   var allPosts = repo.getPosts();
  // var blogPosts = { posts: [] };
+ //res.end();
 
  /* blogPosts.posts.push({
     id: "123",
@@ -29,7 +31,6 @@ router.get('/', function(req, res, next) {
     content: "<h1>Hello, Again World!</h1>"
   });*/
 
-  //var allPosts = repo.getPosts();
   res.render('index', {allPosts: allPosts});
 
   // res.render('index', { title: 'My Blog',

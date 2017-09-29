@@ -72,9 +72,9 @@ var repo = {
         return postList;
     },
     getPostById: (postId) => {
-        if(postList.length < 1) {
+       /* if(postList.length < 1) {
             loadPosts();
-        }
+        }*/
        return postList.find((post) =>{
             return post.id == postId;
        });

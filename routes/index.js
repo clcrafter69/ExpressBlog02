@@ -6,36 +6,17 @@ repo.loadPosts();
 
 /* GET home page. */
 router.get('/', function(req, res) {
+
+  //retrieve posts in descending date order
   var allPosts = repo.getPosts();
- // var blogPosts = { posts: [] };
- //res.end();
 
- /* blogPosts.posts.push({
-    id: "123",
-    title: "My First Blog Post",
-    author: {
-      fName: "Jeff",
-      lName: "Ammons",
-      email: "jeffa@codecareeracademy.com"
-    },
-    content: "<h1>Hello, World!</h1>"
-  });
-  blogPosts.posts.push({
-    id: "second-post",
-    title: "My Second Blog Post",
-    author: {
-      fName: "Jeff",
-      lName: "Ammons",
-      email: "jeffa@codecareeracademy.com"
-    },
-    content: "<h1>Hello, Again World!</h1>"
-  });*/
+  //Create and load navigation
+  var pageNav =  [{ Link: '/Training', Text: 'Home' },{ Link: '/Training', Text: 'Training' }, { Link: '/NewPost',
+  Text: 'Add Post' }, { Link: '/Training', Text: 'About Me'}];
 
-  res.render('index', {allPosts: allPosts});
+  res.render('index', { pageNav: pageNav, allPosts: allPosts});
 
-  // res.render('index', { title: 'My Blog',
-  //   author: "Jeff",
-  //   randomNumber: Math.random() });
+
 });
 
 

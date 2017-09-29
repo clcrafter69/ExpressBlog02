@@ -24,19 +24,11 @@
  <a class="navbar-brand" id="brandStyling" href="#">Cynthia Crafter | Software Developer</a>
  <div class="collapse navbar-collapse" id="nav-content">                
       <ul class="navbar-nav nav nav-pills justify-content-end">
-          <li class="nav-item">
-              <a class="nav-link active bg-success" href="/">Home</a>
+          <% for (var i=0; i< pageNav.length;i++) {%>           
+          <li class="nav-item"> 
+              <a class="nav-link" href="<%= pageNav[i].Link%>"><%= pageNav[i].Text%></a>
           </li>
-          <li class="nav-item">
-              <a class="nav-link" href="/Training.html"> Projects</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link " href="/newPost"> Admin</a>
-          </li>
-          <li class="nav-item">
-          <li class="nav-item">
-              <a class="nav-link" href="/About.html">About Me</a>
-          </li>
+          <%}%>
       </ul>
  </div>
   </nav>
@@ -81,6 +73,9 @@
   <div class="col-md-3" id="test-column">
       <h2 >Recent Posts</h2>
        <div class="list-group postspacing">
+            <% for (var i=0; i< allPosts.length;i++) {%>                         
+                    <a class="list-group-item" href="<%= allPosts[i].id%>"><%= allPosts[i].title%></a>               
+            <%}%>
            <a href="#" class="list-group-item">Cynthia Goes To Camp--Bootcamp That Is...</a>
            <a href="#" class="list-group-item">CLC Future Post 1</a>
            <a href="#" class="list-group-item">CLC Future Post 2</a>

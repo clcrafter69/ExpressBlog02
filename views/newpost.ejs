@@ -18,35 +18,64 @@
   </nav>
 </header>
 
+
+
+    <div class="container-fluid">
+        <div class="row">
+        <div class="col-md-1"></div>  
+        <div class="col-md-7" id="first-column" >
+    
     <form action="/newpost" method="POST">
       
 
-        <div>
-            <label for="title">Title</label>
+        <div class= "form-group">
+            <label for="title" class=" col-sm-1 col-form-label">Title</label>
             <input type="text" id="title" name="title">
         </div>
-        <div>
-            <label for="firstName">First Name</label>
+        <div class= "form-group">
+            <label for="firstName" class=" col-sm-1 col-form-label">First Name</label>
             <input type="text" id="firstName" name="firstName">
         </div>
-        <div>
-            <label for="lastName">Last Name</label>
+        <div class= "form-group">
+            <label for="lastName" class=" col-sm-1 col-form-label">Last Name</label>
             <input type="text" id="lastName" name="lastName">
         </div>
-        <div>
-            <label for="email">Email</label>
-            <input type="text" id="email" name="email">
+        <div class= "form-group">
+            <label for="email" class="col-sm-1 col-form-label">Email</label>
+            <input  type="email" id="email" name="email">
         </div>
-        <div>
-            <label for="pubDate">pubDate</label>
+        <div class= "form-group">
+            <label for="pubDate" class="col-sm-1 col-form-label">Date</label>
             <input type="date" id="pubDate" name="pubDate">
         </div>
-        <div>
-            <label for="content">Post Content</label>
-            <textarea name="content" id="content" cols="60" rows="10"></textarea>
+        <div class= "form-group">
+            <label for="content" class="col-form-label"></label>Add Content Here:</br>
+            <textarea name="content" id="content" cols="50" rows="10"></textarea>
         </div>
 
         <button type="submit">Publish</button>
     </form>
+  </div>
+  <div class="col-md-3" id="test-column">
+    <h2 >Recent Posts</h2>
+     <div class="list-group postspacing">
+            <a href="#" class="list-group-item">Cynthia Goes To Camp...Bootcamp That Is...</a>
+            <a href="#" class="list-group-item">CLC Future Post 1</a>
+            <a href="#" class="list-group-item">CLC Future Post 2</a>
+      
+    </div> 
+    <h2 >Popular Posts</h2>
+     <div class="list-group">
+         <a href="#" class="list-group-item">Cynthia Goes To Camp...Bootcamp That Is...</a>
+         <a href="#" class="list-group-item">CLC Future Post 1</a>
+         <a href="#" class="list-group-item">CLC Future Post 2</a>
+     </div> 
+     <!-- <div class="col-md-1"></div>  -->
+
+
+</div>
+</div>
+    </div>
+   
 
     <% include partials/foot %>

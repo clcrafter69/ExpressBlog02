@@ -1,16 +1,20 @@
 var express = require('express'),
     router = express.Router(),
     repo = require('../models/postRepository');
-
+   var testarray = repo;
+    var testSeqID= testarray.loadPosts();
+     
     /* GET newpost page. */
    router.get('/index', function(req, res, next){
         res.render('index', { pageNav: pageNav, allPosts: allPosts});
     });
 
+  
+
 
     router.post("/", function(req, res, next){
         var newPost = {};
-        newPost.id = req.body.id;
+        newPost.id = Date.now();
         newPost.title = req.body.title;
         newPost.author = {};
         newPost.author.firstName = req.body.firstName;
@@ -21,7 +25,7 @@ var express = require('express'),
 
         repo.addPost(newPost);
 
-        res.redirect("/");
+        res.redirect("/index");
 
         // res.send("DONE! Received: " + req.body.id); // This was our tracer bullet
     });

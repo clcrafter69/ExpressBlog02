@@ -42,11 +42,9 @@
  
   <article class="mainArticle">
       <h5> <small> <%= allPosts[0].pubDate %> </small></h5><br>
-      <h2><a href="<%= allPosts[0].id%>">Cynthia Goes To Camp...Coding Bootcamp That Is...</a></h2>
+      <h2><a href="<%= allPosts[0].id%>"><%= allPosts[0].title%></a></h2>
       <p>
-        <%= allPosts[0].content %> 
-<a href="/myprofile" class="btn btn-secondary  btn-md" role="button">Read More</a>
-         
+        <%= allPosts[0].content %>        
       </p>
      
   </article >
@@ -71,14 +69,14 @@
 
 
   <div class="col-md-3" id="test-column">
-      <h2 >Recent Posts</h2>
+      <h2 >Recent Posts</h2></br>
        <div class="list-group postspacing">
-            <% for (var i=0; i< allPosts.length;i++) {%>                         
-                    <a class="list-group-item" href="<%= allPosts[i].id%>"><%= allPosts[i].title%></a>               
-            <%}%>
+        <% for (var i=0; i< allPosts.length;i++) {%>                         
+          <a class="list-group-item" href="<%= allPosts[i].id%>"><%= allPosts[i].title%></a>               
+        <%}%>
       </div> 
       <h2 >Popular Posts</h2>
-       <div class="list-group">
+       <div class="list-group postspacing">
            <a href="#" class="list-group-item">Cynthia Goes To Camp...Bootcamp That Is...</a>
            <a href="#" class="list-group-item">CLC Future Post 1</a>
            <a href="#" class="list-group-item">CLC Future Post 2</a>

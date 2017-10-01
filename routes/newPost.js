@@ -3,8 +3,8 @@ var express = require('express'),
     repo = require('../models/postRepository');
 
     /* GET newpost page. */
-    router.get('/', function(req, res, next){
-        res.render('newpost', { title: "New Post"});
+   router.get('/index', function(req, res, next){
+        res.render('index', { pageNav: pageNav, allPosts: allPosts});
     });
 
 

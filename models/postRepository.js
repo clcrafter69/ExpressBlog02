@@ -1,6 +1,8 @@
 var fs = require('fs'),
     path = require('path');
 
+const dateformat = require('dateformat');
+
 var filePath = path.join(__dirname, 'data');
 var fileName = path.join(filePath, 'blogPost.json');
 
@@ -22,10 +24,13 @@ var loadPosts = function loadPosts() {
                    var newPosts = JSON.parse(data);
                     if(newPosts.length > 0){
                         postList = newPosts;
+                        
+                      //  var testdate = dateformat(new Date(postList[0].pubDate),'mmmm dS, yyyy');
                         //sort the array to display posts in descending order
                         postList.sort(function(a, b) {
-                               return b.id - a.id;
+                               return new Date(b.pubDate)- new Date(a.pubDate);
                         });
+                        formatDate();
                     }
              
                 });
@@ -34,6 +39,13 @@ var loadPosts = function loadPosts() {
     }
 };
 
+/*format dates in postRepository JSON file*/
+var formatDate = function formatDate(){
+   for (var i =0;i < postList.length; i++)
+   {
+       postList[i].pubDate = dateformat(new Date(postList[i].pubDate),'mmmm dS, yyyy');
+   }
+};
 
 var writeFile = function writeFile(){
     var json = JSON.stringify(postList);
